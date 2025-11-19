@@ -301,6 +301,15 @@ export function WeeklyMonthlyView({ historicalData }: WeeklyMonthlyViewProps) {
                       'GIRION': ''
                     };
 
+                    const findLogo = (name: string) => {
+                      for (const key of Object.keys(ROBOT_LOGOS)) {
+                        if (name === key || name.startsWith(key) || name.includes(key)) {
+                          return ROBOT_LOGOS[key];
+                        }
+                      }
+                      return null;
+                    };
+
                     return month.calendarDays.flat().map((day, idx) => {
                       if (!day.hasOperation && day.day === 0) {
                         // Dia em branco (fora do mês)

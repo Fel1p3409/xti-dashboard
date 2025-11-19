@@ -30,11 +30,22 @@ export function RobotCards({ robots }: RobotCardsProps) {
                   'ZARION': zarionLogo,
                   'GIRION': ''
                 };
-                const logoUrl = ROBOT_LOGOS[robot.name];
-                
+
+                const findLogo = (name: string) => {
+                  // busca correspondência exata ou parcial (ex: "ZARION WIN" contém "ZARION")
+                  for (const key of Object.keys(ROBOT_LOGOS)) {
+                    if (name === key || name.startsWith(key) || name.includes(key)) {
+                      return ROBOT_LOGOS[key];
+                    }
+                  }
+                  return null;
+                };
+
+                const logoUrl = findLogo(robot.name);
+
                 return logoUrl ? (
-                  <img 
-                    src={logoUrl} 
+                  <img
+                    src={logoUrl}
                     alt={robot.name}
                     className="w-7 h-7 object-contain rounded flex-shrink-0"
                   />
