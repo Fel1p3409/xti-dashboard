@@ -1,5 +1,5 @@
 import { RobotStats } from '../utils/calculations';
-import zarionLogo from 'figma:asset/cb68cd1a5eee7dd63ea3f90fb3adb12b54e0fb43.png';
+import zarionLogo from '@/assets/zarion.png';
 
 interface RobotCardsProps {
   robots: RobotStats[];
